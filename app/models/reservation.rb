@@ -11,8 +11,9 @@ class Reservation < ApplicationRecord
   private
 
   def create_missions
-    Mission.create(
-      mission_type: "checkin_checkout",
+    Mission.create!(
+      listing: listing,
+      mission_type: 'checkin_checkout',
       date: end_date,
       price: listing.num_rooms * 10
     ) unless last_checkout_exists?

@@ -6,13 +6,15 @@ class Booking < ApplicationRecord
   private
 
   def create_missions
-    Mission.create(
-      mission_type: "first_checkin",
+    Mission.create!(
+      listing: listing,
+      mission_type: 'first_checkin',
       date: start_date,
       price: listing.num_rooms * 10
     )
-    Mission.create(
-      mission_type: "last_checkout",
+    Mission.create!(
+      listing: listing,
+      mission_type: 'last_checkout',
       date: end_date,
       price: listing.num_rooms * 5
     )
